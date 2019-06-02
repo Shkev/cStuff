@@ -9,17 +9,14 @@ int main()
   int j = 0;
   while (ch != '\n') 
   {
-    if (ch != '\n')
-    {
-      strch[j] = ch;
-      ch = getchar();
-    }
+    strch[j] = ch;
+    ch = getchar();
     j++;
   }
-  for (int i = 0; i < j; i++)
+  for (int i = 0; i < (j + 1); i++)
   {
-    printf("%d", strch[i]);
-    if (i == (j - 1))
+    printf("%c", strch[i]);
+    if (i == j)
     {
       printf("\n");
     }
