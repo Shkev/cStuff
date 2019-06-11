@@ -1,14 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void sort(int input[], int sorted[], int size)
+void sort(int input[], int size)
 {
   int num1;
   int num2;
-  for (int i = 0; i < (size + 1); i++)
+  int count = 0;
+  int i = 0;
+  int min = i;
+  while (i < size)
+  {
+    if (i < size - 1)
+    {
+      int j = i + 1;
+      if (j < size)
+      {
+        if (input[j] < input[min])
+	{
+	  int tmp = input[j];
+	  input[j] = input[min];
+	  input[min] = tmp;
+	  min = j;
+	}
+      }
+      else
+      {
+        int tmp = input[min];
+	input[min] = input[i];
+	input[i] = tmp;
+      }
+    }
+    i++;
+  }  
+  /*for (int i = 0; i < size; i++)
   {
     num1 = input[i];
-    for (int j = 0; j < (size + 1); j++)
+    for (int j = 1; j < size; j++)
     {
       if (j == i)
       {
@@ -17,11 +44,26 @@ void sort(int input[], int sorted[], int size)
       num2 = input[j];
       if (num1 < num2)
       {
-        sorted[j] = num1;
-        break;
+        if ((j != 0) & (i < j))
+        {
+          sorted[j - 1] = num1;
+          sorted[j] = num2;
+          break;
+        }
+        else
+        {
+          sorted[j] = num1;
+          sorted[j + 1] = num2;
+          break;
+        }
+      }
+      else
+      {
+        sorted[j] = num2;
+        sorted[j + 1] = num1;
       }
     }
-  }
+  }*/
   /*MergeSort attempt :(
   while (i >= 0)
   {
@@ -70,7 +112,7 @@ int main()
     j++;
   }
   printf("Unsorted list:\n");
-  for (int i = 0; i < (j + 1); i++)
+  for (int i = 0; i < j; i++)
   {
     printf("%c", strch[i]);
     if (i == j)
@@ -78,18 +120,17 @@ int main()
       printf("\n");
     }
   }
-  int sortArr[50];
-  sort(strch, sortArr, j);
-  printf("Sorted List:\n");
-  //printf("%d\n", sortArr[2]);
-  for (int i = 0; i < (j + 1); i++)
+  sort(strch, j);
+  printf("\nSorted List:\n");
+  for (int i = 0; i < j; i++)
   {
-    printf("%c", sortArr[i]);
+    printf("%c", strch[i]);
     if (i == j)
     {
       printf("\n");
     }
   }
+  printf("\n");
   exit(EXIT_SUCCESS);
 }
 
