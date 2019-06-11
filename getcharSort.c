@@ -1,102 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void printArr(int arr[], int size)
+{
+  for (int i = 0; i < size; i++)
+  {
+    printf("%c", arr[i]);
+    if (i == size)
+    {
+      printf("\n");
+    }
+  }
+}
+
+void swap(int* x, int* y)
+{
+  int tmp = *x;
+  *x = *y;
+  *y = tmp;
+  
+}
+
 void sort(int input[], int size)
 {
-  int num1;
-  int num2;
-  int count = 0;
-  int i = 0;
-  int min = i;
-  while (i < size)
+  int i, j, min;
+  for (i = 0; i < size - 1; i++)
   {
-    if (i < size - 1)
+    min = i;
+    for(j = i + 1; j < size; j++)
     {
-      int j = i + 1;
-      if (j < size)
+      if (input[j] < input[min])
       {
-        if (input[j] < input[min])
-	{
-	  int tmp = input[j];
-	  input[j] = input[min];
-	  input[min] = tmp;
-	  min = j;
-	}
-      }
-      else
-      {
-        int tmp = input[min];
-	input[min] = input[i];
-	input[i] = tmp;
+	min = j;
+	swap(&input[j], &input[min]);
       }
     }
-    i++;
-  }  
-  /*for (int i = 0; i < size; i++)
-  {
-    num1 = input[i];
-    for (int j = 1; j < size; j++)
-    {
-      if (j == i)
-      {
-	continue;
-      }
-      num2 = input[j];
-      if (num1 < num2)
-      {
-        if ((j != 0) & (i < j))
-        {
-          sorted[j - 1] = num1;
-          sorted[j] = num2;
-          break;
-        }
-        else
-        {
-          sorted[j] = num1;
-          sorted[j + 1] = num2;
-          break;
-        }
-      }
-      else
-      {
-        sorted[j] = num2;
-        sorted[j + 1] = num1;
-      }
-    }
-  }*/
-  /*MergeSort attempt :(
-  while (i >= 0)
-  {
-    int mod = i % size;
-    if ((iter != 2) & (mod == 1))
-    {
-      mod = 0;
-    }
-    for (int k = 1; k < (size + 1); k += iter)
-    {
-      num1 = input[mod + (k - 1)];
-      if (k != size)
-      {
-        num2 = input[mod + k];
-      }
-      if (num1 > num2)
-      {
-        sorted[mod + (k - 1)] = num2;
-        sorted[mod + k] = num1;
-      }
-      else
-      {
-        sorted[mod] = num1;
-        sorted[mod + 1] = num2;
-      }
-    }
-    iter = iter * 2;
-    if (iter > size)
-    {
-      break;
-    }
-    i += iter;
-  }*/
+  }
 }
 
 int main()
@@ -112,24 +51,10 @@ int main()
     j++;
   }
   printf("Unsorted list:\n");
-  for (int i = 0; i < j; i++)
-  {
-    printf("%c", strch[i]);
-    if (i == j)
-    {
-      printf("\n");
-    }
-  }
+  printArr(strch, j);
   sort(strch, j);
   printf("\nSorted List:\n");
-  for (int i = 0; i < j; i++)
-  {
-    printf("%c", strch[i]);
-    if (i == j)
-    {
-      printf("\n");
-    }
-  }
+  printArr(strch, j);
   printf("\n");
   exit(EXIT_SUCCESS);
 }
