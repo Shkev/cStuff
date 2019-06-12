@@ -1,3 +1,4 @@
+//hello
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -18,7 +19,7 @@ void swap(int* x, int* y)
   int tmp = *x;
   *x = *y;
   *y = tmp;
-  
+
 }
 
 void sort(int input[], int size)
@@ -44,7 +45,7 @@ int main()
   int strch[50];
   ch = getchar();
   int j = 0;
-  while (ch != '\n') 
+  while (ch != '\n')
   {
     strch[j] = ch;
     ch = getchar();
