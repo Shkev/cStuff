@@ -13,14 +13,6 @@ void printArr(int arr[], int size)
   }
 }
 
-void swap(int* x, int* y)
-{
-  int tmp = *x;
-  *x = *y;
-  *y = tmp;
-
-}
-
 void sort(int input[], int size)
 {
   int i, j, min;
@@ -29,10 +21,15 @@ void sort(int input[], int size)
     min = i;
     for(j = i + 1; j < size; j++)
     {
-      if (input[j] < input[min])
+      if (input[min] > input[j])
       {
-	min = j;
-	swap(&input[j], &input[min]);
+        min = j;
+        if (min != i)
+        {
+            int tmp = input[i];
+            input[i] = input[min];
+            input[min] = tmp;
+        }
       }
     }
   }
@@ -58,6 +55,7 @@ int main()
   printf("\n");
   exit(EXIT_SUCCESS);
 }
+
 
 /* Example code:
 
