@@ -10,58 +10,63 @@ int main()
   FILE* input;
   FILE* output;
   int Q, a, b;
-  input = fopen("./standard_input.txt", "r");
-  output = fopen("./standard_output.txt", "w");
+  input = fopen("standard input", "r");
+  output = fopen("standard output", "w");
   fscanf(input, "%d %d %d", &Q, &a, &b);
-  //printf("%d %d %d\n", Q, a, b);
   int mod = pow(10, 5) + 7;
-  //printf("%d\n", mod);
   int xArr[Q];
   int count[Q];
-  memset(count, 0, 25);
-  int sum = 0;
+  int sum[Q];
   int single = FALSE;
-  for (int i = 0; i >= 0; i++)
-  {
-    int num = 0;
-    int j = i % Q;
-    if (i < Q)
+  int k = 0, numDigit = 0;
+  for (int i = 0; i < 3; i++)
+  {     
+    sum[i] = 100;
+    count[i] = 0;
+    printf("i: %d\n", i);
+    xArr[i] = ((a + (b * (i + 1))) % mod);
+    //printf("%d\n", xArr[i]);
+    while ((sum[i] / 10) != 0)
     {
-      xArr[j] = ((a + (b * (j + 1))) % mod);
-    }
-    //printf("%d\n ", xArr[j]);
-    for (int k = 0; k < Q; k++)
-    {
-      num += (xArr[j]/ 10);
-    }   
-    if (num == 0)
-    {
-      break;
-    }
-    if ((xArr[j] / 10) < 1)
-    {
-      single = TRUE;
-      continue;
-    }
-    sum = 0;
-    //loop to separate digits
-    while (xArr[j] != 0)
-    {
-      if ((single == TRUE) & ((xArr[j] / 10) < 1))
+      int j = k % Q; 
+      printf("arr: %d\n", xArr[i]);
+      if (((xArr[i] / 10) < 1) & (count[i] == 0))
       {
-        break;
+        single = TRUE;
       }
-      int digit = xArr[j] % 10;
-      sum += pow(digit, 2);
-      xArr[j] /= 10;
-      printf("%d\n", xArr[j]);
-      if (xArr[j] != 0)
+      else
       {
-        count[j]++;
+        single = FALSE;
       }
+      sum[i] = 0;
+      numDigit = 0;
+      //loop to separate digits
+      while (xArr[i] != 0)
+      {
+        if ((single == TRUE) & ((xArr[i] / 10) < 1))
+        {
+          count[i] = 0;
+          sum[i] = 0;
+          numDigit = 1;
+          break;
+        }
+        int digit = xArr[i] % 10;
+        numDigit++;
+        sum[i] += pow(digit, 2);
+        xArr[i] /= 10;
+      }
+      printf("numDigit: %d\n", numDigit);
+      if (single == FALSE)
+      {
+        count[i]++;
+      }
+      else
+      {
+        continue;
+      }
+      xArr[i] = sum[i];
+      k++;
     }
-    xArr[j] = sum;
-    printf("%d\n", xArr[j]);
   }
   for (int i = 0; i < Q; i++)
   {
