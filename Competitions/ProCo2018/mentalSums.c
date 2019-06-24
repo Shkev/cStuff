@@ -2,16 +2,18 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <time.h>
 #define TRUE       0
 #define FALSE      1
 
 int main()
 {
+  clock_t begin = clock();
   FILE* input;
   FILE* output;
   int Q, a, b;
-  input = fopen("standard_input.txt", "r");
-  output = fopen("standard_output.txt", "w");
+  input = fopen("standard input", "r");
+  output = fopen("standard output", "w");
   fscanf(input, "%d %d %d", &Q, &a, &b);
   int mod = pow(10, 5) + 7;
   int xArr[Q];
@@ -67,5 +69,8 @@ int main()
   }
   fclose(input);
   fclose(output);
+  clock_t end = clock();
+  double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+  printf("time = %f sec", time_spent);
   exit(EXIT_SUCCESS);
 }
