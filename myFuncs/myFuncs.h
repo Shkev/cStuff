@@ -1,7 +1,8 @@
 //Function that prints all items in an array
 void printArr();
 
-/*Function that sorts all items in the input array                                                                *from smallest to largest                                                                                        
+/*Function that sorts all items in the input array                                                                
+*from smallest to largest                                                                                        
 *and stores sorted values in input array using selection sort                                        
 */
 void smallSelecSort();
@@ -24,6 +25,10 @@ float areaOfCircle();
 //add a constant value to each value in an array
 void arrayAdd();
 
+/* Swaps the bits of a binary digit
+ *ex: Input: 10110010
+ *Output: 01010101*/
+void binarySwap();
 
 /*functions to deal with multidimensional matrices (arrays)
 */

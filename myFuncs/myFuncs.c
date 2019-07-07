@@ -122,6 +122,16 @@ void arrayAdd(int* arr, int size, int num) {
 }
 
 
+void binarySwap(int binaryNum[], int size) {
+  int sizeIndex = size - 1;
+  for (float loopCount = 0; loopCount <= floor(size / 2); loopCount++) {
+    int tmp;
+    tmp = binaryNum[(int)loopCount];
+    binaryNum[(int)loopCount] = binaryNum[sizeIndex - (int)loopCount];
+    binaryNum[sizeIndex - (int)loopCount] = tmp;
+  }
+}
+
 //matrix manipulation functions
 
 
