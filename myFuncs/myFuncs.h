@@ -26,12 +26,19 @@ float areaOfCircle();
 void arrayAdd();
 
 /* Swaps the bits of a binary digit
+ *through the use of an array of character digits.
  *ex: Input: 10110010
  *Output: 01010101*/
-void binarySwap();
+void binarySwapWithArray();
 
-/*functions to deal with multidimensional matrices (arrays)
-*/
+/* Swaps the bits of a binary digit                                                                                                                                                                        
+ *by shifting the bits and using bitwise operators                                                                                                                                                         
+ *ex: Input: 10110010                                                                                                                                                                          
+ *Output: 01010101*/
+int binarySwapWithShift();
+
+
+/*functions to deal with multidimensional matrices (arrays)*/
 
 //multiplies two matrices
 void multMat();

@@ -122,7 +122,7 @@ void arrayAdd(int* arr, int size, int num) {
 }
 
 
-void binarySwap(int binaryNum[], int size) {
+void binarySwapWithArray(int binaryNum[], int size) {
   int sizeIndex = size - 1;
   for (float loopCount = 0; loopCount <= floor(size / 2); loopCount++) {
     int tmp;
@@ -131,6 +131,21 @@ void binarySwap(int binaryNum[], int size) {
     binaryNum[sizeIndex - (int)loopCount] = tmp;
   }
 }
+
+
+int binarySwapWithShift(int num, int bits)
+{
+  int tmp1 = 0, tmp2 = 0, tmp3 = 0;
+  for (int loopCount = 0; loopCount < bits; loopCount++)
+  {
+    tmp3 = tmp3 << 1;  //shifting number left one to result in final shift of 7 (not 8)                                                                                                                    
+    tmp1 = num >> loopCount;  //shifting num by loopCount to shift it to a different bit everytime                                                                                                         
+    tmp2 = (tmp1 & 0x1);  //compares byte that is shifted to with 1 with `&` operator                                                                                                                      
+    tmp3 = (tmp3 | tmp2);  //shifted tmp3 byte is compared to tmp2                                                                                                                                         
+  }
+  return tmp3;
+}
+
 
 //matrix manipulation functions
 
