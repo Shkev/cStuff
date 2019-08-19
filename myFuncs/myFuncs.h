@@ -33,12 +33,12 @@ void binarySwapWithArray();
 
 /* Swaps the bits of a binary digit                                                                                                                                                                        
  *by shifting the bits and using bitwise operators                                                                                                                                                         
- *ex: Input: 10110010                                                                                                                                                                          
+ *ex: Input: 10110010                                                                                                                                                
  *Output: 01010101*/
 int binarySwapWithShift();
 
 
-/*functions to deal with multidimensional matrices (arrays)*/
+/*functions to deal with multidimensional arrays (matrices)*/
 
 //multiplies two matrices
 void multMat();
