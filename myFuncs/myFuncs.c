@@ -147,6 +147,17 @@ int binarySwapWithShift(int num, int bits)
 }
 
 
+void substr(char string[], char substring[], int start, int length)
+{
+  int i = 0;
+  while (i < length)
+  {
+    substring[i] = string[start + i];
+    i++;
+  }
+  substring[i] = '\0';
+}
+
 //matrix manipulation functions
 
 

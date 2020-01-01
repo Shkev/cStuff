@@ -37,6 +37,10 @@ void binarySwapWithArray();
  *Output: 01010101*/
 int binarySwapWithShift();
 
+/*creates a substring of the input string.
+*The substring starts on index 'start' of
+*string and has a length of 'length'*/
+void substr();
 
 /*functions to deal with multidimensional arrays (matrices)*/
 
