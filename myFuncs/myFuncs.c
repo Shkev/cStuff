@@ -57,6 +57,17 @@ void largeSelecSort(long int input[], int size)
   }
 }
 
+int max(int num1, int num2)
+{
+  if (num1 > num2)
+  {
+    return num1;
+  }
+  else
+  {
+    return num2;
+  }
+}
 
 void primePair(long int max_val)
 {
@@ -138,10 +149,10 @@ int binarySwapWithShift(int num, int bits)
   int tmp1 = 0, tmp2 = 0, tmp3 = 0;
   for (int loopCount = 0; loopCount < bits; loopCount++)
   {
-    tmp3 = tmp3 << 1;  //shifting number left one to result in final shift of 7 (not 8)                                                                                                                    
-    tmp1 = num >> loopCount;  //shifting num by loopCount to shift it to a different bit everytime                                                                                                         
-    tmp2 = (tmp1 & 0x1);  //compares byte that is shifted to with 1 with `&` operator                                                                                                                      
-    tmp3 = (tmp3 | tmp2);  //shifted tmp3 byte is compared to tmp2                                                                                                                                         
+    tmp3 = tmp3 << 1;  //shifting number left one to result in final shift of 7 (not 8)
+    tmp1 = num >> loopCount;  //shifting num by loopCount to shift it to a different bit everytime
+    tmp2 = (tmp1 & 0x1);  //compares byte that is shifted to with 1 with `&` operator
+    tmp3 = (tmp3 | tmp2);  //shifted tmp3 byte is compared to tmp2
   }
   return tmp3;
 }
@@ -166,10 +177,10 @@ void substr(char string[], char substring[], int start, int length)
 */
 void multMat(int r1, int c1, int r2, int c2, float x[MAXROW][MAXCOL], float y[n1][n2], float result[n1][m2])
 {
-  /* debugging code                                                                                                   
-  printf("\ny matrix\n");                                                                                             
-  printf("%f\n", y[0][0]);                                                                                            
-  printf("%f\n", y[1][0]);                                                                                            
+  /* debugging code
+  printf("\ny matrix\n");
+  printf("%f\n", y[0][0]);
+  printf("%f\n", y[1][0]);
   printf("%f\n", y[2][0]); */
   float total;
   /*Multiplying two matrices*/
@@ -211,7 +222,7 @@ void invMatrix(float matrix[][MAXCOL], float outputMatrix[][MAXCOL], int* r0, in
   float deter;
   if ((*c2 == FALSE) & (*r2 == FALSE))
   {
-    //if matrix[][] is a 2 by 2 matrix (array)                                                                        
+    //if matrix[][] is a 2 by 2 matrix (array)
     float adj[2][2];
     float invMat[2][2];
     float a = matrix[0][0];
@@ -219,7 +230,7 @@ void invMatrix(float matrix[][MAXCOL], float outputMatrix[][MAXCOL], int* r0, in
     float c = matrix[1][0];
     float d = matrix[1][1];
     deter = (a * d) - (b * c);
-    //printf("\nDeterminant: %f\n", deter);                                                                           
+    //printf("\nDeterminant: %f\n", deter);
     if (deter == 0)
     {
       printf("\nInfinite Solutions or No Solutions\n");
@@ -239,15 +250,15 @@ void invMatrix(float matrix[][MAXCOL], float outputMatrix[][MAXCOL], int* r0, in
           outputMatrix[m][n] = arg;
         }
       }
-      //printf("%f %f \n", outputMatrix[0][0], outputMatrix[0][1]);                                                   
-      //printf("%f %f \n", outputMatrix[1][0], outputMatrix[1][1]);                                                   
+      //printf("%f %f \n", outputMatrix[0][0], outputMatrix[0][1]);
+      //printf("%f %f \n", outputMatrix[1][0], outputMatrix[1][1]);
     }
   }
   else
   {
     if ((*c2 == TRUE) & (*r2 == TRUE))
     {
-      //if matrix[][] is a 3 by 3 matrix (array)                                                                      
+      //if matrix[][] is a 3 by 3 matrix (array)
       float adj[3][3];
       float invMat[3][3];
       float matMinor[3][3];
@@ -255,7 +266,7 @@ void invMatrix(float matrix[][MAXCOL], float outputMatrix[][MAXCOL], int* r0, in
       a = matrix[0][0]; b = matrix[0][1]; c = matrix[0][2];
       d = matrix[1][0]; e = matrix[1][1]; f = matrix[1][2];
       g = matrix[2][0]; h = matrix[2][1]; i = matrix[2][2];
-      //creating matrix of minors                                                                                     
+      //creating matrix of minors
       matMinor[0][0] = (e * i) - (f * h);
       matMinor[0][1] = (d * i) - (g * f);
       matMinor[0][2] = (d * h) - (g * e);
@@ -265,10 +276,10 @@ void invMatrix(float matrix[][MAXCOL], float outputMatrix[][MAXCOL], int* r0, in
       matMinor[2][0] = (b * f) - (e * c);
       matMinor[2][1] = (a * f) - (d * c);
       matMinor[2][2] = (a * e) - (b * d);
-      /* Debugging code                                                                                               
-      printf("\nMatrix of Minors\n");                                                                                 
-      printf("%f %f %f\n", matMinor[0][0], matMinor[0][1], matMinor[0][2]);                                           
-      printf("%f %f %f\n", matMinor[1][0], matMinor[1][1], matMinor[1][2]);                                           
+      /* Debugging code
+      printf("\nMatrix of Minors\n");
+      printf("%f %f %f\n", matMinor[0][0], matMinor[0][1], matMinor[0][2]);
+      printf("%f %f %f\n", matMinor[1][0], matMinor[1][1], matMinor[1][2]);
       printf("%f %f %f\n", matMinor[2][0], matMinor[2][1], matMinor[2][2]); */
       float matCoFact[3][3];
       int var = 0;
@@ -288,12 +299,12 @@ void invMatrix(float matrix[][MAXCOL], float outputMatrix[][MAXCOL], int* r0, in
           var++;
         }
       }
-      /* Debugging Code                                                                                               
-      printf("\nMatrix of Cofactors\n");                                                                              
-      printf("%f %f %f\n", matCoFact[0][0], matCoFact[0][1], matCoFact[0][2]);                                        
-      printf("%f %f %f\n", matCoFact[1][0], matCoFact[1][1], matCoFact[1][2]);                                        
+      /* Debugging Code
+      printf("\nMatrix of Cofactors\n");
+      printf("%f %f %f\n", matCoFact[0][0], matCoFact[0][1], matCoFact[0][2]);
+      printf("%f %f %f\n", matCoFact[1][0], matCoFact[1][1], matCoFact[1][2]);
       printf("%f %f %f\n", matCoFact[2][0], matCoFact[2][1], matCoFact[2][2]); */
-      //code to transpose matrix of cofactors to adjugate                                                             
+      //code to transpose matrix of cofactors to adjugate
       adj[0][0] = matCoFact[0][0];
       adj[0][1] = matCoFact[1][0];
       adj[0][2] = matCoFact[2][0];
@@ -304,7 +315,7 @@ void invMatrix(float matrix[][MAXCOL], float outputMatrix[][MAXCOL], int* r0, in
       adj[2][1] = matCoFact[1][2];
       adj[2][2] = matCoFact[2][2];
       deter = (matCoFact[0][0] * a) + (matCoFact[0][1] * b) + (matCoFact[0][2] * c);
-      //printf("Determinant: %f\n", deter);                                                                           
+      //printf("Determinant: %f\n", deter);
       if (deter == 0)
       {
         printf("Infinite Solutions or No Solutions\n");
@@ -313,10 +324,10 @@ void invMatrix(float matrix[][MAXCOL], float outputMatrix[][MAXCOL], int* r0, in
       else
       {
         scaleMatrix(3, adj, invMat, (1 / deter));
-        /* Debugging code                                                                                             
-        printf("\nInverse Matrix\n");                                                                                 
-        printf("%f %f %f\n", invMat[0][0], invMat[0][1], invMat[0][2]);                                               
-        printf("%f %f %f\n", invMat[1][0], invMat[1][1], invMat[1][2]);                                               
+        /* Debugging code
+        printf("\nInverse Matrix\n");
+        printf("%f %f %f\n", invMat[0][0], invMat[0][1], invMat[0][2]);
+        printf("%f %f %f\n", invMat[1][0], invMat[1][1], invMat[1][2]);
         printf("%f %f %f\n", invMat[2][0], invMat[2][1], invMat[2][2]); */
         //using loop to copy invMat into outputMatrix
 	for (int m = 0; m < 3; m++)
@@ -331,6 +342,3 @@ void invMatrix(float matrix[][MAXCOL], float outputMatrix[][MAXCOL], int* r0, in
     }
   }
 }
-
-
-

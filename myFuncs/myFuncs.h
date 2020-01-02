@@ -1,14 +1,17 @@
 //Function that prints all items in an array
 void printArr();
 
-/*Function that sorts all items in the input array                                                                
-*from smallest to largest                                                                                        
-*and stores sorted values in input array using selection sort                                        
+/*Function that sorts all items in the input array
+*from smallest to largest
+*and stores sorted values in input array using selection sort
 */
 void smallSelecSort();
 
 //sorts array from largest to smallest and stores in inputted array using selection sort
 void largeSelecSort();
+
+//returns the largers of two values
+int max();
 
 //finds all prime pairs between 3 and a max value
 void primePair();
@@ -31,9 +34,9 @@ void arrayAdd();
  *Output: 01010101*/
 void binarySwapWithArray();
 
-/* Swaps the bits of a binary digit                                                                                                                                                                        
- *by shifting the bits and using bitwise operators                                                                                                                                                         
- *ex: Input: 10110010                                                                                                                                                
+/* Swaps the bits of a binary digit
+ *by shifting the bits and using bitwise operators
+ *ex: Input: 10110010
  *Output: 01010101*/
 int binarySwapWithShift();
 
@@ -52,4 +55,3 @@ void scaleMatrix();
 
 //finds the inverse of the inputted matrix given the dimensions of the matrix
 void invMatrix();
-
