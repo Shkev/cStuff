@@ -133,6 +133,17 @@ void arrayAdd(int* arr, int size, int num) {
 }
 
 
+int sumArray(int arr[], int size)
+{
+  int sum = 0, i;
+  for (i = 0; i < size; i++)
+  {
+    sum += arr[i];
+  }
+  return sum;
+}
+
+
 void binarySwapWithArray(int binaryNum[], int size) {
   int sizeIndex = size - 1;
   for (float loopCount = 0; loopCount <= floor(size / 2); loopCount++) {

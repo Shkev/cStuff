@@ -28,6 +28,9 @@ float areaOfCircle();
 //add a constant value to each value in an array
 void arrayAdd();
 
+//add all the values in an array together and returns that value
+int sumArray();
+
 /* Swaps the bits of a binary digit
  *through the use of an array of character digits.
  *ex: Input: 10110010
