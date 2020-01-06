@@ -22,6 +22,16 @@ void printArr(int arr[], int size)
 }
 
 
+void arrcpy(int arr1[], int arr2[], int size)
+{
+  //both arrays must be same size
+  for (int i = 0; i < size; i++)
+  {
+    arr2[i] = arr1[i];
+  }
+}
+
+
 void smallSelecSort(int input[], int size)
 {
   int i, j;

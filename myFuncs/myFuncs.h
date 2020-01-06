@@ -1,6 +1,11 @@
 //Function that prints all items in an array
 void printArr();
 
+/*copies the values in one array (arr1[]) to
+*second array (arr2[]). Values in first array
+*are not modified*/
+void arrcpy();
+
 /*Function that sorts all items in the input array
 *from smallest to largest
 *and stores sorted values in input array using selection sort
