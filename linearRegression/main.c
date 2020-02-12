@@ -7,11 +7,11 @@
 int main(int argc, char* argv[])
 {
   //input data
-  int x[10] = {1,2,3,4,5,6,7,8,9,10};
-	int y[10] = {2,4,6,9,15,12,15,17,20,30};
+  float x[10] = {1,2,3,4,5,6,7,8,9,10};
+	float y[10] = {2,4,6,9,15,12,15,17,20,30};
 
   //hyperparams
-  int learning_rate = 0.01;
+  float learning_rate = 0.01;
   int num_iterations = 100;
 
   //initializing parameters
@@ -35,4 +35,5 @@ int main(int argc, char* argv[])
   {
     printf("Cost %d %f \n", count, cost[count]);
   }
+  exit(EXIT_SUCCESS);
 }

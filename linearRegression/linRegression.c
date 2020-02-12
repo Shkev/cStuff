@@ -3,7 +3,7 @@
 #include <math.h>
 #include "linRegression.h"
 
-float batch_gradient_descent(int x[], int y[], int num_data, float learning_rate, int* w, int* b)
+float batch_gradient_descent(float x[], float y[], int num_data, float learning_rate, int* w, int* b)
 {
   float db = 0.0; //derivative of cost func with respect to bias
   float dw = 0.0; //derivative of cost func with respect to weights
@@ -11,9 +11,9 @@ float batch_gradient_descent(int x[], int y[], int num_data, float learning_rate
   int count;
   for (count = 0; count < num_data; count++)
   {
-    cost += pow(((*w * x[count] + b) - y[count]), 2); //equation to find cost
-    db += (*w * x[count] + b) - y[count];
-    dw += ((*w * x[count] + b) - y[count]) * x[count];
+    cost += pow((((*w) * x[count] + *b) - y[count]), 2); //equation to find cost
+    db += (*w * x[count] + *b) - y[count];
+    dw += ((*w * x[count] + *b) - y[count]) * x[count];
   }
 
   //updating weight and bias
@@ -22,7 +22,7 @@ float batch_gradient_descent(int x[], int y[], int num_data, float learning_rate
   return cost;
 }
 
-float* regression(int x[], int y[], float learning_rate, int num_iterations, int* w, int* b)
+float* regression(float x[], float y[], float learning_rate, int num_iterations, int* w, int* b)
 {
   float cost[num_iterations];
   int num_data = 10; //number of data points
