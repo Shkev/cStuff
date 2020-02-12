@@ -1,5 +1,5 @@
-#ifndef MY_HEADER_H
-#define MY_HEADER_H
+#ifndef LINREGRESSION_H_
+#define LINREGRESSION_H_
 
 //declaring functions
 
