@@ -3,8 +3,8 @@
 #include <math.h>
 #include <string.h>
 #include "myFuncs.h"
-#define TRUE     0
-#define FALSE    1
+#define TRUE     1
+#define FALSE    0
 //the following two definition are subject to change
 #define MAXROW      3
 #define MAXCOL      3
@@ -50,7 +50,7 @@ void smallSelecSort(int input[], int size)
 }
 
 
-void largeSelecSort(long int input[], int size)
+void largeSelecSort(int input[], int size)
 {
   int i, j;
   for (i = 0; i < size - 1; i++)
@@ -190,13 +190,22 @@ void substr(char string[], char substring[], int start, int length)
   substring[i] = '\0';
 }
 
+
+int isPalindrome(char* s)
+{
+  char* tmp;
+  for(tmp = s+strlen(s)-1; s < tmp; s++, tmp--)
+  {
+    if(*s != *tmp)
+      return FALSE;
+  }
+  return TRUE;
+}
+
 //matrix manipulation functions
 
 
-/*r1 and c1 are number of rows and columns in first matrix
-*r2 and c2 are number of rows and columns in second matrix
-*/
-void multMat(int r1, int c1, int r2, int c2, float x[MAXROW][MAXCOL], float y[n1][n2], float result[n1][m2])
+void multMat(int r1, int c1, int r2, int c2, float x[MAXROW][MAXCOL], float y[c1][c2], float result[c1][r2])
 {
   /* debugging code
   printf("\ny matrix\n");
@@ -232,10 +241,6 @@ void scaleMatrix(int max, float inputMatrix[][max], float outputMatrix[][max], f
   }
 }
 
-
-/* r0, r1... c1, c2 are indicators which indicate whether or not a row/column is empty (all 0's)
- * if a row or column only has 0's or does not exist, the variable corresponding to that row/column
- * is set to FALSE, and if it does exist/is not only 0's, then it is set to TRUE*/
 
 void invMatrix(float matrix[][MAXCOL], float outputMatrix[][MAXCOL], int* r0, int* r1, int* r2, int* c0, int* c1, int\
 * c2, int* cont)
