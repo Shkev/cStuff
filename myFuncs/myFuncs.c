@@ -202,6 +202,30 @@ int isPalindrome(char* s)
   return TRUE;
 }
 
+
+void baseChange(char* s, int num, int b)
+{
+  if(num == 0)
+  {
+    strcpy(s, "");
+    return;
+  }
+  /*finding the n-1 digit
+  *recursively goes through all digits in number
+  *and determines its value*/
+  baseChange(s, num/b, b);
+
+  //adding final digit to number
+  int len = strlen(s);
+  int digit = num % b;
+  if(digit < 10)
+    s[len] = digit + 48;
+  else
+    s[len] = digit + 55;
+  s[len+1] = '\0';
+}
+
+
 //matrix manipulation functions
 
 

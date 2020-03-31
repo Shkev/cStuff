@@ -58,6 +58,14 @@ determines is a given string is a palindrome
 
 int isPalindrome(char* s);
 
+
+/*converts a given number, num, to base b,
+*and stores it as a string in s.
+*/
+
+void baseChange(char* s, int num, int b);
+
+
 /*functions to deal with multidimensional arrays (matrices)*/
 
 //multiplies two matrices
