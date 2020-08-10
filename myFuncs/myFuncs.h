@@ -35,6 +35,12 @@ void arrayAdd(int* arr, int size, int num);
 //add all the values in an array together and returns that value
 int sumArray(int arr[], int size);
 
+/*finds sum of values in array from index start to end
+* arr is the array that is being accessed,
+* start is the starting index and end is the ending index
+*/
+int arr_sum(int arr[], int start, int end)
+
 /* Swaps the bits of a binary digit
  *through the use of an array of character digits.
  *ex: Input: 10110010
@@ -65,6 +71,13 @@ int isPalindrome(char* s);
 
 void baseChange(char* s, int num, int b);
 
+/* determines if arr contains val. len is the length of the array */
+int arr_contains(int arr[], int len, int val)
+
+/* finds the minimum value in an array
+* arr is the array being searched and len is its length
+*/
+int arr_min(int arr[], int len)
 
 /*functions to deal with multidimensional arrays (matrices)*/
 

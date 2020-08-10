@@ -3,8 +3,8 @@
 #include <math.h>
 #include <string.h>
 #include "myFuncs.h"
-#define TRUE     1
-#define FALSE    0
+#define TRUE     0
+#define FALSE    1
 //the following two definition are subject to change
 #define MAXROW      3
 #define MAXCOL      3
@@ -24,6 +24,7 @@ void printArr(int arr[], int size)
 
 void arrcpy(int arr1[], int arr2[], int size)
 {
+  /* copies arr1 into arr 2 */
   //both arrays must be same size
   for (int i = 0; i < size; i++)
   {
@@ -66,6 +67,7 @@ void largeSelecSort(int input[], int size)
     }
   }
 }
+
 
 int max(int num1, int num2)
 {
@@ -153,6 +155,15 @@ int sumArray(int arr[], int size)
   return sum;
 }
 
+int arr_sum(int arr[], int start, int end)
+{
+  int sum = 0;
+  for(int i = start; i < end; i++)
+  {
+    sum += arr[i];
+  }
+  return sum;
+}
 
 void binarySwapWithArray(int binaryNum[], int size) {
   int sizeIndex = size - 1;
@@ -225,6 +236,30 @@ void baseChange(char* s, int num, int b)
   s[len+1] = '\0';
 }
 
+int arr_contains(int arr[], int len, int val)
+{
+  for(int i = 0; i < len; i++)
+  {
+    if(arr[i] == val)
+    {
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
+
+int arr_min(int arr[], int len)
+{
+  int min = arr[0];
+  for(int i = 1; i < len; i++)
+  {
+    if(arr[i] < min)
+    {
+      min = arr[i];
+    }
+  }
+  return min;
+}
 
 //matrix manipulation functions
 
