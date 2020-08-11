@@ -39,7 +39,7 @@ int sumArray(int arr[], int size);
 * arr is the array that is being accessed,
 * start is the starting index and end is the ending index
 */
-int arr_sum(int arr[], int start, int end)
+int arr_sum(int arr[], int start, int end);
 
 /* Swaps the bits of a binary digit
  *through the use of an array of character digits.
@@ -72,13 +72,18 @@ int isPalindrome(char* s);
 void baseChange(char* s, int num, int b);
 
 /* determines if arr contains val. len is the length of the array */
-int arr_contains(int arr[], int len, int val)
+int arr_contains(int arr[], int len, int val);
 
 /* finds the minimum value in an array
 * arr is the array being searched and len is its length
 */
-int arr_min(int arr[], int len)
+int arr_min(int arr[], int len);
 
+/* Recursively finds the greatest common divisor
+ * of two numbers, a and b.
+*/  
+  int gcd(int a, int b);
+  
 /*functions to deal with multidimensional arrays (matrices)*/
 
 //multiplies two matrices

@@ -261,6 +261,18 @@ int arr_min(int arr[], int len)
   return min;
 }
 
+int gcd(int a, int b)
+{
+  if(b == 0)
+  {
+    return a;
+  }
+  else
+  {
+    return gcd(b, a % b);
+  }
+}
+
 //matrix manipulation functions
 
 
